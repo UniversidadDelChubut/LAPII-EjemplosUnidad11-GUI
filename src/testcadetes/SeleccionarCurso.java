@@ -8,7 +8,9 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 public class SeleccionarCurso  extends JFrame implements WindowListener {
+	
 	private JFrame parent;
+	
 	public SeleccionarCurso(JFrame parent) {
 		this.parent = parent;
 		this.setSize(300,300);

@@ -1,4 +1,4 @@
-package TableModel;
+package tablemodel;
 
 import java.util.List;
 
@@ -12,40 +12,33 @@ import javax.swing.table.TableModel;
 
 public class VentanaAlumnos extends JFrame {
 
-	List <Alumno> alumnos;
-	
-	public VentanaAlumnos(List <Alumno> alumnos) {
+	List<Alumno> alumnos;
+
+	public VentanaAlumnos(List<Alumno> alumnos) {
 		super("Alumnos");
 		this.alumnos = alumnos;
-		
-		
+
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
+
 		JPanel panel = new JPanel();
-		JTable tabla = new JTable( new MyTableModel() );
-		
+		JTable tabla = new JTable(new MyTableModel());
+
 		panel.add(tabla);
 		this.setContentPane(panel);
-		
+
 		this.setSize(450, 450);
-		
+
 		this.setVisible(true);
-	
-	///Me dibujo
-		
-		
-		
-		
+
+		// /Me dibujo
+
 	}
 
-	
-	private void mostrarError(String error){
-		JOptionPane.showMessageDialog(this, "ERROR: " +  error);
+	private void mostrarError(String error) {
+		JOptionPane.showMessageDialog(this, "ERROR: " + error);
 	}
-	
-	
-	class MyTableModel implements TableModel{
+
+	class MyTableModel implements TableModel {
 
 		@Override
 		public int getRowCount() {
@@ -60,20 +53,28 @@ public class VentanaAlumnos extends JFrame {
 		@Override
 		public String getColumnName(int columnIndex) {
 			switch (columnIndex) {
-				case 0: return "Nombre";
-				case 1: return "Legajo";
-				case 2: return "Promedio";
-				default: return null;
+			case 0:
+				return "Nombre";
+			case 1:
+				return "Legajo";
+			case 2:
+				return "Promedio";
+			default:
+				return null;
 			}
 		}
 
 		@Override
 		public Class<?> getColumnClass(int columnIndex) {
 			switch (columnIndex) {
-				case 0: return String.class;
-				case 1: return Integer.class;
-				case 2: return Double.class;
-				default: return null;
+			case 0:
+				return String.class;
+			case 1:
+				return Integer.class;
+			case 2:
+				return Double.class;
+			default:
+				return null;
 			}
 		}
 
@@ -88,10 +89,14 @@ public class VentanaAlumnos extends JFrame {
 		public Object getValueAt(int rowIndex, int columnIndex) {
 			Alumno alumno = VentanaAlumnos.this.alumnos.get(rowIndex);
 			switch (columnIndex) {
-				case 0: return alumno.getNombre();
-				case 1: return alumno.getLegajo();
-				case 2: return alumno.getNotaPromedio();
-				default: return null;
+			case 0:
+				return alumno.getNombre();
+			case 1:
+				return alumno.getLegajo();
+			case 2:
+				return alumno.getNotaPromedio();
+			default:
+				return null;
 			}
 		}
 
@@ -101,34 +106,29 @@ public class VentanaAlumnos extends JFrame {
 			if (columnIndex != 2)
 				return;
 			Double valor = (Double) aValue;
-			
-			
+
 			try {
 				alumno.setNotaPromedio(valor);
 			} catch (EscuelaException e) {
-				
+
 				VentanaAlumnos.this.mostrarError(e.getMessage());
-				
+
 			}
-			
-			
+
 		}
 
 		@Override
 		public void addTableModelListener(TableModelListener l) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void removeTableModelListener(TableModelListener l) {
 			// TODO Auto-generated method stub
-			
+
 		}
-		
+
 	}
-	
-	
+
 }
-
-
