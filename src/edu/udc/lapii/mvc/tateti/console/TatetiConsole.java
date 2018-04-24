@@ -3,17 +3,17 @@ package edu.udc.lapii.mvc.tateti.console;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import edu.udc.lapii.gui.tateti.TaTeTi;
-import edu.udc.lapii.gui.tateti.core.TatetiController;
-import edu.udc.lapii.gui.tateti.core.TatetiListener;
-import edu.udc.lapii.gui.tateti.core.TatetiVista;
+import edu.udc.lapii.mvc.tateti.core.Tateti;
+import edu.udc.lapii.mvc.tateti.core.TatetiController;
+import edu.udc.lapii.mvc.tateti.core.TatetiListener;
+import edu.udc.lapii.mvc.tateti.core.TatetiVista;
 
 public class TatetiConsole implements TatetiVista, TatetiListener {
 
-	TaTeTi tateti;
+	Tateti tateti;
 	TatetiController controller;
 
-	public TatetiConsole(TaTeTi tateti) {
+	public TatetiConsole(Tateti tateti) {
 		this.tateti = tateti;
 	}
 
@@ -78,7 +78,7 @@ public class TatetiConsole implements TatetiVista, TatetiListener {
 				controller.lanzarAccion((valor - 1) / 3, (valor - 1) % 3);
 			}
 		} else {
-			System.out.println(tateti.getGanador() == TaTeTi.VACIO ? "EMPATE"
+			System.out.println(tateti.getGanador() == Tateti.VACIO ? "EMPATE"
 					: "GANA " + tateti.getGanador());
 			System.out.println("Game Over!!!");
 		}

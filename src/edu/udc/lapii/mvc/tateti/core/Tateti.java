@@ -12,17 +12,17 @@ public class Tateti {
 	public static final char VACIO = ' ';
 
 	private char[][] tablero = { 
-			{ TaTeTi.VACIO, TaTeTi.VACIO, TaTeTi.VACIO}, 
-			{ TaTeTi.VACIO, TaTeTi.VACIO, TaTeTi.VACIO}, 
-			{ TaTeTi.VACIO, TaTeTi.VACIO, TaTeTi.VACIO} 
+			{ Tateti.VACIO, Tateti.VACIO, Tateti.VACIO}, 
+			{ Tateti.VACIO, Tateti.VACIO, Tateti.VACIO}, 
+			{ Tateti.VACIO, Tateti.VACIO, Tateti.VACIO} 
 			};
 
-	private char turno = TaTeTi.EQUIS;
+	private char turno = Tateti.EQUIS;
 
 	/**
 	 * Crea un partida de ta te ti.
 	 */
-	public TaTeTi() {
+	public Tateti() {
 		
 	}
 
@@ -32,38 +32,38 @@ public class Tateti {
 	 */
 	public synchronized char getTurno() {
 		if (finalizoJuego())
-			return TaTeTi.VACIO;
+			return Tateti.VACIO;
 		return turno;
 	}
 
 	public char getGanador() {
 		if (!finalizoJuego())
-			return TaTeTi.VACIO;
-		if (!hayTaTeTi())
-			return TaTeTi.VACIO;
-		return turno == TaTeTi.EQUIS ? TaTeTi.CIRCULO : TaTeTi.EQUIS;
+			return Tateti.VACIO;
+		if (!hayTateti())
+			return Tateti.VACIO;
+		return turno == Tateti.EQUIS ? Tateti.CIRCULO : Tateti.EQUIS;
 	}
 
 	public synchronized void jugarX(int fil, int col) {
-		jugar(TaTeTi.EQUIS, fil, col);
+		jugar(Tateti.EQUIS, fil, col);
 	}
 
 	public synchronized void jugarY(int fil, int col) {
-		jugar(TaTeTi.CIRCULO, fil, col);
+		jugar(Tateti.CIRCULO, fil, col);
 	}
 
 	// Mejorar
 	private void jugar(char jugador, int fil, int col) {
-		if (hayTaTeTi())
+		if (hayTateti())
 			return;
 		if (fil < 0 || fil >= tablero.length)
 			return;
 		if (col < 0 || col >= tablero.length)
 			return;
-		if (this.tablero[fil][col] != TaTeTi.VACIO)
+		if (this.tablero[fil][col] != Tateti.VACIO)
 			return;
 		this.tablero[fil][col] = jugador;
-		this.turno = jugador == TaTeTi.EQUIS ? TaTeTi.CIRCULO : TaTeTi.EQUIS;
+		this.turno = jugador == Tateti.EQUIS ? Tateti.CIRCULO : Tateti.EQUIS;
 		
 		this.informarJugadaRealizada();
 		
@@ -74,40 +74,40 @@ public class Tateti {
 	}
 
 	public synchronized boolean finalizoJuego() {
-		return hayTaTeTi() || tableroCompleto();
+		return hayTateti() || tableroCompleto();
 	}
 
 	public synchronized boolean tableroCompleto() {
 		for (int i = 0; i < tablero.length; i++) {
 			for (int j = 0; j < tablero.length; j++) {
-				if (tablero[i][j] == TaTeTi.VACIO)
+				if (tablero[i][j] == Tateti.VACIO)
 					return false;
 			}
 		}
 		return true;
 	}
 
-	public synchronized boolean hayTaTeTi() {
+	public synchronized boolean hayTateti() {
 		for (int i = 0; i < tablero.length; i++) {
-			if (this.tablero[i][0] != TaTeTi.VACIO	
+			if (this.tablero[i][0] != Tateti.VACIO	
 					&& this.tablero[i][0] == this.tablero[i][1]
 					&& this.tablero[i][1] == this.tablero[i][2])
 				return true;
 		}
 
 		for (int i = 0; i < tablero.length; i++) {
-			if (this.tablero[0][i] != TaTeTi.VACIO
+			if (this.tablero[0][i] != Tateti.VACIO
 					&& this.tablero[0][i] == this.tablero[1][i]
 					&& this.tablero[1][i] == this.tablero[2][i])
 				return true;
 		}
 
-		if (this.tablero[0][0] != TaTeTi.VACIO
+		if (this.tablero[0][0] != Tateti.VACIO
 				&& this.tablero[0][0] == this.tablero[1][1]
 				&& this.tablero[1][1] == this.tablero[2][2])
 			return true;
 
-		if (this.tablero[0][2] != TaTeTi.VACIO
+		if (this.tablero[0][2] != Tateti.VACIO
 				&& this.tablero[0][2] == this.tablero[1][1]
 				&& this.tablero[1][1] == this.tablero[2][0])
 			return true;

@@ -5,7 +5,7 @@ public class TatetiController {
 	public TatetiVista vista;
 	public Tateti modelo;
 	
-	public TatetiController(TaTeTi modelo, TatetiVista vista) {
+	public TatetiController(Tateti modelo, TatetiVista vista) {
 		this.modelo = modelo;
 		this.vista = vista;
 		this.vista.setController(this);
@@ -15,7 +15,7 @@ public class TatetiController {
 	
 	public void lanzarAccion(int fila, int columna) {
 
-		if (modelo.getTurno() == TaTeTi.EQUIS)
+		if (modelo.getTurno() == Tateti.EQUIS)
 			modelo.jugarX(fila, columna);
 		else
 			modelo.jugarY(fila, columna);

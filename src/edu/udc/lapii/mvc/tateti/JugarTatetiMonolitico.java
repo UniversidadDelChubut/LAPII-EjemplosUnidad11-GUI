@@ -1,15 +1,16 @@
-package edu.udc.lapii.gui.tateti;
+package edu.udc.lapii.mvc.tateti;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import edu.udc.lapii.gui.tateti.gui.TatetiFrame;
+import edu.udc.lapii.mvc.tateti.core.Tateti;
+import edu.udc.lapii.mvc.tateti.swing.TatetiFrame;
 
-public class JugarTaTeTi {
+public class JugarTatetiMonolitico {
 
-	private TaTeTi tateti = new TaTeTi();
+	private Tateti tateti = new Tateti();
 
-	public JugarTaTeTi() {
+	public JugarTatetiMonolitico() {
 		
 		TatetiFrame tf = new TatetiFrame(tateti);
 		
@@ -38,7 +39,7 @@ public class JugarTaTeTi {
 				} 
 			}
 
-			if (tateti.getTurno() == TaTeTi.EQUIS)
+			if (tateti.getTurno() == Tateti.EQUIS)
 				tateti.jugarX((valor - 1) / 3, (valor - 1) % 3);
 			else
 				tateti.jugarY((valor - 1) / 3, (valor - 1) % 3);
@@ -49,7 +50,7 @@ public class JugarTaTeTi {
 
 		imprimir();
 
-		System.out.println(tateti.getGanador() == TaTeTi.VACIO ? "EMPATE" : "GANA "
+		System.out.println(tateti.getGanador() == Tateti.VACIO ? "EMPATE" : "GANA "
 				+ tateti.getGanador());
 
 		System.out.println("Game Over!!!");
@@ -69,7 +70,7 @@ public class JugarTaTeTi {
 	}
 
 	public static void main(String[] args) {
-		new JugarTaTeTi();
+		new JugarTatetiMonolitico();
 	}
 
 }

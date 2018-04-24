@@ -1,4 +1,4 @@
-package edu.udc.lapii.mvc.tateti.gui;
+package edu.udc.lapii.mvc.tateti.swing;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
