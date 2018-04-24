@@ -18,7 +18,7 @@ public class TatetiConsole implements TatetiVista, TatetiListener {
 	}
 
 	@Override
-	public void actualizare() {
+	public void actualizar() {
 		imprimir();
 	}
 

@@ -19,7 +19,7 @@ public class TatetiController {
 			modelo.jugarX(fila, columna);
 		else
 			modelo.jugarY(fila, columna);
-		vista.actualizare();
+		vista.actualizar();
 	}
 	
 }

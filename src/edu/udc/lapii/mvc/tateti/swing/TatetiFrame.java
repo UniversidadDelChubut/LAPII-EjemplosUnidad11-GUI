@@ -38,7 +38,7 @@ public class TatetiFrame extends JFrame implements TatetiListener, TatetiVista {
 		this.controller = controller;
 	}
 	
-	public void actualizare() {
+	public void actualizar() {
 		tatetiPanel.actualizar();
 	}
 	

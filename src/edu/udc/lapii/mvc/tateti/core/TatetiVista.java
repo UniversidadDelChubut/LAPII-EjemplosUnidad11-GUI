@@ -4,8 +4,8 @@ public interface TatetiVista {
 	
 	public void setController(TatetiController controller);
 	
-	public void actualizare();
-	
+	public void actualizar();
 	
 	public void lanzar();
+	
 }
