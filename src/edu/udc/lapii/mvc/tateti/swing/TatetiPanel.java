@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import edu.udc.lapii.mvc.tateti.core.Tateti;
 
+@SuppressWarnings("serial")
 public class TatetiPanel extends JPanel {
 	
 	private JButton [] buttons = new JButton[9];

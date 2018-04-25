@@ -8,6 +8,7 @@ import edu.udc.lapii.mvc.tateti.core.TatetiController;
 import edu.udc.lapii.mvc.tateti.core.TatetiListener;
 import edu.udc.lapii.mvc.tateti.core.TatetiVista;
 
+@SuppressWarnings("serial")
 public class TatetiFrame extends JFrame implements TatetiListener, TatetiVista {
 	
 	private TatetiController controller;
